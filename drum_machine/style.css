@@ -63,10 +63,22 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.05s;
 }
+
+.playing {
+  transform: scale(1.1);
+  border-color: yellow;
+  box-shadow: 0 0 10px yellow;
+}
+
 
 kbd {
   text-align:center;
   font-size: 3em;
   font-family: 'Bungee', cursive;
+}
+
+.label {
+  text-transform:uppercase;
 }
