@@ -1,0 +1,36 @@
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: url("drumkit_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display:flex;
+  justify-content: center;
+}
+
+main {
+  display:flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 80%;
+  padding:20px;
+  margin:10px;
+  border: 1px solid yellow;
+}
+
+header {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  display:flex;
+  align-self: center;
+  width: 400px;
+
+}
