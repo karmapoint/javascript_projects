@@ -81,6 +81,7 @@ kbd {
 
 .label {
   text-transform:uppercase;
+  font-size: .9em;
 }
 
 .credits {

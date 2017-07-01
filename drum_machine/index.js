@@ -11,6 +11,16 @@ function playSample(e) {
   key.classList.add('playing');
 }
 
+function playClickedSample(e) {
+  const identifier = e.target.getAttribute("data-key");
+  const audio = document.querySelector(`audio[data-key="${identifier}"]`);
+  const key = document.querySelector(`.key[data-key="${identifier}"]`);
+  if(!audio) return;
+  audio.currentTime = 0;
+  audio.play();
+  key.classList.add('playing');
+}
+
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
   this.classList.remove('playing');
@@ -19,6 +29,8 @@ function removeTransition(e) {
 
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+keys.forEach(key => key.addEventListener('click', playClickedSample));
 
 window.addEventListener('keydown', playSample);
-window.addEventListener('click', playSample);
+
+// window.addEventListener('click', playClickedSample);
