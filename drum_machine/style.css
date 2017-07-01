@@ -1,5 +1,4 @@
 body, html {
-  height: 100%;
   width: 100%;
   font-family: sans-serif;
 }
@@ -49,6 +48,7 @@ header {
   align-items: center;
   justify-content: center;
   max-width: 600px;
+  margin-bottom:14px;
 }
 
 .key {
@@ -81,4 +81,20 @@ kbd {
 
 .label {
   text-transform:uppercase;
+}
+
+.credits {
+  font-size:.8em;
+  color: white;
+  text-align:center;
+  width: 100%;
+}
+
+.credits a {
+  color: white;
+  text-decoration: underline;
+}
+
+.credits a:hover {
+  color:yellow;
 }
