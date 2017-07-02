@@ -99,3 +99,38 @@ kbd {
 .credits a:hover {
   color:yellow;
 }
+
+
+@media (max-width: 900px) {
+    main {
+        width: 90%;
+    }
+    .logo {
+      360px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 98%;
+        border: none;
+    }
+    kbd {
+      display:none;
+    }
+    .logo {
+      width: 300px;
+    }
+
+    header {
+      height: 100px;
+      margin-bottom: 30px;
+      margin-top: 0px;
+    }
+
+    .key {
+      width: 100px;
+      height: 50px;
+      padding: 2px;
+    }
+}
