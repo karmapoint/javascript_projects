@@ -4,18 +4,30 @@
     <meta charset="utf-8">
     <title></title>
     <script src="validation.js"></script>
+    <style>
+    #nick { display:none;}
+    </style>
   </head>
   <body>
     <form>
       <label> Preferred email address:
         <input type="email" id="email_addr" name="email1"
         value = "me@me.com" required>
-      </label>
+      </label></br>
       <label> Repeat email address:
         <input type="email" id="email_repeat" name="email2"
         onchange = "return checkEmail();" required>
-      </label>
-      <input type="submit" value="Confirm Emails" onclick="return checkEmail();"
+      </label></br>
+
+      <label> First Name: <input type="text" name="firstName" value="" required></label></br>
+      <label> Last Name: <input type="text" name="lastName" value="" required></label></br>
+      <label> Nickname? <input type="checkbox" value="yes" name="yesNick" id="yesNick" onchange="nicknameFunction();"/></label></br>
+
+      <div id="nick">
+        <label>Nickname: <input type="text" name="nickname" id="nickname"></label>
+      </div>
+    </br>
+      <input type="submit" value="Confirm Emails" onclick="return checkEmail();">
     </form>
   </body>
 </html>
