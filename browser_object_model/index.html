@@ -5,21 +5,39 @@
     <title>Testing JavaScript DOM Stuff</title>
 
   </head>
-  <body>
+  <body  onresize = "resizeRefresh()">
     <div id="message"></div>
 
 
     <script>
+
       let msg = `<h2>Browser Window</h2><p>width: ${window.innerWidth}</br>`;
       msg += `height: ${window.innerHeight}</p>`;
       msg += `<h2>History</h2><p>items: ${window.history.length}</p>`
       msg += `<h2>Screen</h2><p>width: ${window.screen.width}</br>`
       msg += `height: ${window.screen.height}</br>`
-      msg += `<h2>Location</h2><p>${window.location}</br>`
+      msg += `<h2>Location</h2><p>${window.location}</p>`
+      msg+= `<h2>Navigator</h2><p>Browser: ${navigator.appName}</br>`;
+      msg += `version: ${navigator.appVersion}</br>`;
+      msg += `language: ${navigator.language}</br>`;
+
+
+
 
       const el = document.querySelector('#message');
       el.innerHTML = msg;
-      console.log(window.history);
+
+      function resizeRefresh() {
+        window.location.reload();
+      }
+
+      // function move(){
+      //   const win = window.open('', '', 'width=400, height=400');
+      //   win.document.write("<h1>Test</h1>");
+      //   win.moveTo(400,400);
+      //   win.focus();
+      // }
+      // setTimeout(move, 2000);
     </script>
 
   </body>
