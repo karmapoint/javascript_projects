@@ -7,6 +7,7 @@
     <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
     <meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet">
+    <script src="https://use.fontawesome.com/38cb0c94db.js"></script>
   </head>
   <body>
     <main>
@@ -14,14 +15,31 @@
         <h1>Roll 'Em</h1>
       </header>
 
+      <div id="content">
 
+        <div class="settings modal">
+          <div class="close settingClose"><i class="fa fa-window-close" aria-hidden="true"></i></div>
+          <h2>Settings:</h2>
+
+        </div>
+
+        <div class="credits modal">
+          <div class="close creditClose"><i class="fa fa-window-close" aria-hidden="true"></i></div>
+          <h2>Credits:</h2>
+          <ul class="att">
+            <li> <a href="https://github.com/karmapoint/javascript_projects/tree/master/dice" target="_blank">Designed and coded by Brent Gummow <i class="fa fa-github" aria-hidden="true"></i></a> </li>
+            <li> <a href="https://openclipart.org/detail/210817/polyhedral-rpg-gaming-dice-dec-2014" target="_blank">Dice icons based on this collection</a></li>
+          </ul>
+        </div>
+
+      </div>
       <footer>
         <audio id="rollSound" preload="auto" src="dice.wav"></audio>
         <button id="roll">Roll</button>
+        <button id="settingsBtn"><i class="fa fa-cog" aria-hidden="true"></i></button>
+        <button id="creditsBtn">Credits</button>
 
-        <div class="credits">
-          <p class="att"><a href="https://github.com/karmapoint/javascript_projects/tree/master/dice" target="_blank">Designed and coded by Brent Gummow</a>. <br/><a href="https://openclipart.org/detail/210817/polyhedral-rpg-gaming-dice-dec-2014" target="_blank">Dice icons based on this collection.</a></p>
-        </div>
+
       </footer>
     </main>
     <script src="index.js"></script>
