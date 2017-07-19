@@ -1,5 +1,5 @@
 body {
-  background-image: url("felt.jpg");
+  background-color: #123A12;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -9,14 +9,40 @@ main {
   margin: 0;
   padding: 0;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background-image: url("gradient.png");
+  background-repeat: repeat-x;
+
+}
+h1 {
+  font-family: 'Slackey', cursive;
+  font-size: 3em;
+  color: white;
+}
+
 #roll {
-  width:100px;
-  height: 50px;
+  width:90px;
+  height: 40px;
+  border-radius: 10px;
+  font-family: 'Slackey', cursive;
+  font-size: 1.4em;
+  background-color: darkred;
+  border-color: darkred;
+  color: white;
 }
 
 footer {
   height: 70px;
   width: 100%;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
   position: fixed;
   bottom: 0;
   background-image: url("wood.jpg");
@@ -24,4 +50,13 @@ footer {
   padding: 10px;
   margin: 0;
   border-top:3px solid rgba(0, 0, 0, 0.4);
+}
+
+.att {
+  font-size: .8em;
+  color: darkgreen;
+  font-family: sans-serif;
+}
+.att a {
+  color: darkgreen;
 }
