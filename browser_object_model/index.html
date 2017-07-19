@@ -10,7 +10,7 @@
 
 
     <script>
-
+      let timeDate = new Date();
       let msg = `<h2>Browser Window</h2><p>width: ${window.innerWidth}</br>`;
       msg += `height: ${window.innerHeight}</p>`;
       msg += `<h2>History</h2><p>items: ${window.history.length}</p>`
@@ -19,7 +19,34 @@
       msg += `<h2>Location</h2><p>${window.location}</p>`
       msg+= `<h2>Navigator</h2><p>Browser: ${navigator.appName}</br>`;
       msg += `version: ${navigator.appVersion}</br>`;
-      msg += `language: ${navigator.language}</br>`;
+      msg += `language: ${navigator.language}</p>`;
+      msg += `<h2>DOM</h2><p>Title: ${document.title}</br>`;
+      msg += `<p>Last Modified: ${document.lastModified}</br>`;
+      msg += `<p>URL: ${document.URL}</br>`;
+      document.title = "testing";
+      msg += `<p>domain: ${document.domain}</p>`;
+
+      msg += `<h2>Time and Date</h2><p>Date: ${timeDate.getDate()}</br>`
+      msg += `<p>Day: ${timeDate.getDay()}</br>`
+      msg += `<p>FullYear: ${timeDate.getFullYear()}</br>`
+      msg += `<p>Hours: ${timeDate.getHours()}</br>`
+      msg += `<p>Milliseconds: ${timeDate.getMilliseconds()}</br>`
+      msg += `<p>Minutes: ${timeDate.getMinutes()}</br>`
+      msg += `<p>Month: ${timeDate.getMonth()}</br>`
+      msg += `<p>Seconds: ${timeDate.getSeconds()}</br>`
+      msg += `<p>Time: ${timeDate.toTimeString()}</br>`
+      msg += `<p>Timezone Offset: ${timeDate.getTimezoneOffset()}</br>`
+
+      // Day:
+      // FullYear:
+      // Hours:
+      // Milliseconds
+      // Minutes
+      // Month
+      // Seconds
+      // Time:
+      // Timezone Offset
+
 
 
 
@@ -38,6 +65,10 @@
       //   win.focus();
       // }
       // setTimeout(move, 2000);
+
+
+
+
     </script>
 
   </body>
