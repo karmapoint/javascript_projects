@@ -78,11 +78,47 @@ settingsCloseButton.addEventListener('click', toggleSettings, false);
 
 
 // Add and remove dice
-let diceContainer = document.querySelector('.controls');
+let diceContainer = document.querySelector('#diceContainer');
 let diceSettings = document.getElementsByClassName('delete');
-for (var i = 0; i < diceSettings.length ; i++) {
-  diceSettings[i].onclick = function(e){
-    let child = e.target.parentNode;
-    diceContainer.removeChild(child);
-  };
+
+function setupDelete() {
+  for (var i = 0; i < diceSettings.length ; i++) {
+    diceSettings[i].onclick = function(e){
+      let child = e.target.parentNode;
+      diceContainer.removeChild(child);
+    };
+  }
 }
+
+setupDelete();
+
+let diceCode = `
+  <select class="type">
+    <option selected disabled value="">Type of Die</option>
+    <option value="d4">d4</option>
+    <option value="d6">d6</option>
+    <option value="d8">d8</option>
+    <option value="d10">d10</option>
+    <option value="d12">d12</option>
+    <option value="d20">d20</option>
+  </select>
+  <select class="color">
+    <option selected disabled value="">Color of Die</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="yellow">yellow</option>
+  </select>
+  <i class="fa fa-times delete" aria-hidden="true"></i>`;
+
+let addDie = document.querySelector(".controls button");
+function addDieToSettings(e){
+  let newDie = document.createElement("div");
+  newDie.className = "dieSelects";
+  newDie.id = `die${diceSettings.length}`;
+  newDie.innerHTML = diceCode;
+  diceContainer.appendChild(newDie);
+  setupDelete();
+}
+
+addDie.addEventListener('click', addDieToSettings, false);

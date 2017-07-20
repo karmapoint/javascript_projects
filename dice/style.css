@@ -190,7 +190,7 @@ input:checked + .slider:before {
 .dieSelects{
   font-size: 2em;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap;
