@@ -37,6 +37,7 @@ h2 {
   float: right;
   color: white;
   font-size: 2em;
+  cursor: pointer;
 }
 
 #content {
@@ -57,6 +58,7 @@ button {
   color: white;
   background-color: darkorange;
   border-color: darkorange;
+  cursor: pointer;
 }
 
 button:focus {
@@ -180,4 +182,37 @@ input:checked + .slider:before {
   margin-right: 20px;
   margin-top:8px;
   margin-left: 20px;
+}
+
+
+/*Dice selectors*/
+
+.dieSelects{
+  font-size: 2em;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 380px;
+}
+
+.dieSelects select {
+  font-size: .5em;
+  margin-bottom: 10px;
+  box-shadow: none;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.dieSelects select:focus {
+  outline: none;
+}
+
+.delete {
+  color: red;
+  margin-bottom:8px;
+  cursor: pointer;
 }

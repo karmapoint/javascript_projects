@@ -6,7 +6,7 @@ let label = document.querySelector(".label");
 let box = document.querySelector(".switch");
 function toggleLabel(e) {
   if (label.innerHTML === "Sound OFF") {
-      label.innerHTML = "Sound ON";
+      label.innerHTML = "Sound ON &nbsp; ";
       sound = true;
     }
     else {
@@ -17,8 +17,7 @@ function toggleLabel(e) {
   box.addEventListener("change", toggleLabel, false);
 
 
-
-
+// ----------------------------------------------------
 
 // Rolling the dice
 
@@ -34,6 +33,8 @@ const rollButton = document.querySelector('#roll');
 rollButton.addEventListener('click', rollDice, false);
 
 
+
+// ----------------------------------------------------
 
 
 // Toggle credit modals
@@ -53,6 +54,7 @@ const creditsCloseButton = document.querySelector(".creditClose");
 creditsCloseButton.addEventListener('click', toggleCredits, false);
 
 
+// ----------------------------------------------------
 
 
 // Toggle settings modals
@@ -69,3 +71,10 @@ settingsButton.addEventListener('click', toggleSettings, false);
 
 const settingsCloseButton = document.querySelector(".settingClose");
 settingsCloseButton.addEventListener('click', toggleSettings, false);
+
+
+
+// ----------------------------------------------------
+
+
+// Add and remove dice
