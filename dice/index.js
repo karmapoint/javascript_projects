@@ -78,3 +78,11 @@ settingsCloseButton.addEventListener('click', toggleSettings, false);
 
 
 // Add and remove dice
+let diceContainer = document.querySelector('.controls');
+let diceSettings = document.getElementsByClassName('delete');
+for (var i = 0; i < diceSettings.length ; i++) {
+  diceSettings[i].onclick = function(e){
+    let child = e.target.parentNode;
+    diceContainer.removeChild(child);
+  };
+}
