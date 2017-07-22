@@ -86,6 +86,8 @@ function setupDelete() {
     diceSettings[i].onclick = function(e){
       let child = e.target.parentNode;
       diceContainer.removeChild(child);
+
+      // !!!!!!----- Add functionality to remove from active dice
     };
   }
 }
@@ -109,9 +111,10 @@ let diceCode = `
     <option value="red">red</option>
     <option value="yellow">yellow</option>
   </select>
+  <button class="save">SAVE</button>
   <i class="fa fa-times delete" aria-hidden="true"></i>`;
 
-let addDie = document.querySelector(".controls button");
+let addDie = document.querySelector(".add");
 function addDieToSettings(e){
   let newDie = document.createElement("div");
   newDie.className = "dieSelects";
@@ -122,3 +125,20 @@ function addDieToSettings(e){
 }
 
 addDie.addEventListener('click', addDieToSettings, false);
+
+const activeDice = [];
+function saveDie(id){
+  // check type
+  // check color
+  // get id
+  // create new die object
+  // push die object into active Dice
+  // hide save button
+  // remove error messages
+  // display close button
+}
+
+function saveError(){
+  let message = "<p class='error'>Must select die type and color!</p>";
+
+}

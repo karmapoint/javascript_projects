@@ -90,9 +90,7 @@ button:focus {
   margin-left:20px;
 }
 
-.hidden {
-  display:none;
-}
+
 
 footer {
   height: 70px;
@@ -217,4 +215,22 @@ input:checked + .slider:before {
   color: red;
   margin-bottom:8px;
   cursor: pointer;
+  visibility: hidden;
+}
+
+.save {
+  cursor: pointer;
+  font-size: .4em;
+  margin-bottom: 8px;
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.save:focus {
+  box-shadow: 0 0 1px darkgreen;
+  outline: none;
+}
+
+.hidden {
+  display:none;
 }
