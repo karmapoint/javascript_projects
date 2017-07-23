@@ -76,23 +76,41 @@ settingsCloseButton.addEventListener('click', toggleSettings, false);
 
 // ----------------------------------------------------
 
+function Die(name, type, color){
+  this.name = name;
+  this.type = type;
+  this.color = color;
+}
+
+
+
 
 // Add and remove dice
 let diceContainer = document.querySelector('#diceContainer');
 let diceSettings = document.getElementsByClassName('delete');
+let diceSave = document.getElementsByClassName('save');
 
 function setupDelete() {
   for (var i = 0; i < diceSettings.length ; i++) {
     diceSettings[i].onclick = function(e){
       let child = e.target.parentNode;
       diceContainer.removeChild(child);
-
       // !!!!!!----- Add functionality to remove from active dice
     };
   }
 }
 
+function setupSave() {
+  for (var i = 0; i < diceSettings.length ; i++) {
+    diceSave[i].onclick = saveDie;
+  }
+}
+
+
+// Initial event listeners for defaul die
 setupDelete();
+setupSave();
+
 
 let diceCode = `
   <select class="type">
@@ -122,15 +140,30 @@ function addDieToSettings(e){
   newDie.innerHTML = diceCode;
   diceContainer.appendChild(newDie);
   setupDelete();
+  setupSave();
 }
 
 addDie.addEventListener('click', addDieToSettings, false);
 
 const activeDice = [];
-function saveDie(id){
-  // check type
-  // check color
-  // get id
+
+
+function saveDie(e){
+  e.preventDefault();
+  let currentDieName = e.target.parentNode.id;
+
+  let currentDieType = document.querySelector(`#${currentDieName} .type`);
+  let currentType = currentDieType.options[currentDieType.selectedIndex].value;
+
+  let currentDieColor = document.querySelector(`#${currentDieName} .color`);
+  let currentColor = currentDieType.options[currentDieType.selectedIndex].value;
+
+  if (currentType === "" || currentColor === "") {
+      saveError();
+  } else {
+    console.log("save successful");
+  };
+
   // create new die object
   // push die object into active Dice
   // hide save button
@@ -140,5 +173,6 @@ function saveDie(id){
 
 function saveError(){
   let message = "<p class='error'>Must select die type and color!</p>";
+  console.log(message);
 
 }
