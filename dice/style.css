@@ -193,7 +193,7 @@ input:checked + .slider:before {
   margin-bottom: 10px;
   display:flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap:wrap;
   justify-content: space-between;
   align-items: center;
   max-width: 380px;
@@ -213,9 +213,8 @@ input:checked + .slider:before {
 
 .delete {
   color: red;
-  margin-bottom:8px;
   cursor: pointer;
-  visibility: hidden;
+  margin-bottom: 8px;
 }
 
 .save {
@@ -230,7 +229,10 @@ input:checked + .slider:before {
   box-shadow: 0 0 1px darkgreen;
   outline: none;
 }
-
+.error {
+  font-size: .8em;
+  color: gold;
+}
 .hidden {
   display:none;
 }

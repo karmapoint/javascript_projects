@@ -130,7 +130,8 @@ let diceCode = `
     <option value="yellow">yellow</option>
   </select>
   <button class="save">SAVE</button>
-  <i class="fa fa-times delete" aria-hidden="true"></i>`;
+  <i class="fa fa-times delete" aria-hidden="true"></i><br>
+  <div class="error"></div>`;
 
 let addDie = document.querySelector(".add");
 function addDieToSettings(e){
@@ -159,20 +160,26 @@ function saveDie(e){
   let currentColor = currentDieType.options[currentDieType.selectedIndex].value;
 
   if (currentType === "" || currentColor === "") {
-      saveError();
+      saveError(e);
   } else {
-    console.log("save successful");
-  };
+      clearError(e);
+      console.log(currentDieName);
+      let saveButton = document.querySelector(`#${currentDieName} .save`);
+      saveButton.classList.add("hidden");
 
-  // create new die object
-  // push die object into active Dice
-  // hide save button
-  // remove error messages
-  // display close button
+      let newDie = new Die(`${currentDieName}`, `${currentType}`, `${currentColor}`);
+      activeDice.push(newDie);
+      console.log(activeDice);
+    };
 }
 
-function saveError(){
-  let message = "<p class='error'>Must select die type and color!</p>";
-  console.log(message);
+function saveError(e){
+  let message = "<p class='error'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Must select die type and color!</p>";
+  let container = document.querySelector(`#${e.target.parentNode.id} .error`);
+  container.innerHTML = message;
+}
 
+function clearError(e){
+  let container = document.querySelector(`#${e.target.parentNode.id} .error`);
+  container.innerHTML = "";
 }
