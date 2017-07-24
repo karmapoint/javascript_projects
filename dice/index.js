@@ -27,6 +27,7 @@ function rollDice(e){
   if (sound) {
     audio.play();
   }
+  //CHECK FOR OPEN MODALS AND CLOSE THEM?
 }
 
 const rollButton = document.querySelector('#roll');
@@ -91,11 +92,19 @@ let diceSettings = document.getElementsByClassName('delete');
 let diceSave = document.getElementsByClassName('save');
 
 function setupDelete() {
-  for (var i = 0; i < diceSettings.length ; i++) {
+  for (let i = 0; i < diceSettings.length ; i++) {
     diceSettings[i].onclick = function(e){
       let child = e.target.parentNode;
       diceContainer.removeChild(child);
-      // !!!!!!----- Add functionality to remove from active dice
+      console.log(activeDice);
+      for (let j = 0; j < activeDice.length; j++) {
+        if (activeDice[j].name === child.id) {
+          activeDice.splice(j, 1);
+          console.log(activeDice);
+        }
+      }
+
+
     };
   }
 }
@@ -163,13 +172,11 @@ function saveDie(e){
       saveError(e);
   } else {
       clearError(e);
-      console.log(currentDieName);
       let saveButton = document.querySelector(`#${currentDieName} .save`);
       saveButton.classList.add("hidden");
 
       let newDie = new Die(`${currentDieName}`, `${currentType}`, `${currentColor}`);
       activeDice.push(newDie);
-      console.log(activeDice);
     };
 }
 
