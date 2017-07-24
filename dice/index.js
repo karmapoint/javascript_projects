@@ -249,12 +249,12 @@ function hideModals() {
 }
 
 function rollDice(e){
+  hideModals();
   clearValues();
   render();
   checkPlayAudio();
   setTimeout(function() {
     updateValues();
-    hideModals();
     render();
   }, audioDelay);
 
