@@ -31,6 +31,7 @@ h2 {
   font-family: 'Slackey', cursive;
   font-size: 2em;
   color: white;
+  margin-top:10px;
 }
 
 .close {
@@ -235,4 +236,8 @@ input:checked + .slider:before {
 }
 .hidden {
   display:none;
+}
+
+.description {
+  margin-bottom: 10px;
 }

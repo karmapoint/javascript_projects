@@ -22,6 +22,13 @@ function toggleLabel(e) {
 // Rolling the dice
 
 function rollDice(e){
+  let results = document.querySelector(".results");
+  results.innerHTML = "";
+  if (activeDice.length === 0) {
+    results.innerHTML = "<h2>No Dice!</h2>";
+  }
+
+
   const audio = document.querySelector('#rollSound');
   audio.currentTime = 0;
   if (sound) {
@@ -96,11 +103,9 @@ function setupDelete() {
     diceSettings[i].onclick = function(e){
       let child = e.target.parentNode;
       diceContainer.removeChild(child);
-      console.log(activeDice);
       for (let j = 0; j < activeDice.length; j++) {
         if (activeDice[j].name === child.id) {
           activeDice.splice(j, 1);
-          console.log(activeDice);
         }
       }
 
@@ -139,6 +144,7 @@ let diceCode = `
     <option value="yellow">yellow</option>
   </select>
   <button class="save">SAVE</button>
+  <div class="description"></div>
   <i class="fa fa-times delete" aria-hidden="true"></i><br>
   <div class="error"></div>`;
 
@@ -163,10 +169,14 @@ function saveDie(e){
   let currentDieName = e.target.parentNode.id;
 
   let currentDieType = document.querySelector(`#${currentDieName} .type`);
+
+  currentDieType.classList.add('hidden');
+
   let currentType = currentDieType.options[currentDieType.selectedIndex].value;
 
   let currentDieColor = document.querySelector(`#${currentDieName} .color`);
-  let currentColor = currentDieType.options[currentDieType.selectedIndex].value;
+
+  let currentColor = currentDieColor.options[currentDieColor.selectedIndex].value;
 
   if (currentType === "" || currentColor === "") {
       saveError(e);
@@ -174,6 +184,11 @@ function saveDie(e){
       clearError(e);
       let saveButton = document.querySelector(`#${currentDieName} .save`);
       saveButton.classList.add("hidden");
+      currentDieType.classList.add('hidden');
+      currentDieColor.classList.add('hidden');
+      let description = document.querySelector(`#${currentDieName} .description`);
+
+      description.innerHTML = `${currentColor} ${currentType}`;
 
       let newDie = new Die(`${currentDieName}`, `${currentType}`, `${currentColor}`);
       activeDice.push(newDie);
