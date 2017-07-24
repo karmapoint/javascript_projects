@@ -87,10 +87,9 @@ function setupDelete() {
           activeDice.splice(j, 1);
         }
       }
-
-
     };
   }
+  render();
 }
 
 function setupSave() {
@@ -170,6 +169,7 @@ function saveDie(e){
 
       // add saved die into the activeDice array
       activeDice.push(newDie);
+      render();
     }
 }
 
@@ -193,18 +193,13 @@ function render(){
   let results = document.querySelector(".results");
   results.innerHTML = "";
 
-  // hide modals
-  const credits = document.querySelector('.credits');
-  credits.classList.add('hidden');
-  const settings = document.querySelector('.settings');
-  settings.classList.add('hidden');
-
   // check for dice
   if (activeDice.length === 0){
     results.innerHTML = "<h2>No Dice!</h2><p>Add dice in the settings.";
   } else {
     results.innerHTML = "";
     // loop through activeDice and render each
+
   }
 }
 
@@ -221,8 +216,14 @@ function rollDice(e){
     audio.play();
   }
 
+  // hide modals
+  const credits = document.querySelector('.credits');
+  credits.classList.add('hidden');
+  const settings = document.querySelector('.settings');
+  settings.classList.add('hidden');
+
   render();
-  //CHECK FOR OPEN MODALS AND CLOSE THEM?
+
 }
 
 const rollButton = document.querySelector('#roll');
