@@ -228,11 +228,15 @@ function clearValues(){
   }
 }
 
+let audioDelay = 2000;
+
 function checkPlayAudio(){
   const audio = document.querySelector('#rollSound');
   audio.currentTime = 0;
   if (sound) {
     audio.play();
+  } else {
+    audioDelay = 500;
   }
 }
 
@@ -251,7 +255,7 @@ function rollDice(e){
     updateValues();
     hideModals();
     render();
-  }, 2000);
+  }, audioDelay);
 
 }
 
