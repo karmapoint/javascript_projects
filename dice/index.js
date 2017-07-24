@@ -144,7 +144,7 @@ let diceCode = `
     <option value="yellow">yellow</option>
   </select>
   <button class="save">SAVE</button>
-  <div class="description"></div>
+  <div class="description hidden"></div>
   <i class="fa fa-times delete" aria-hidden="true"></i><br>
   <div class="error"></div>`;
 
@@ -189,8 +189,9 @@ function saveDie(e){
       let description = document.querySelector(`#${currentDieName} .description`);
 
       description.innerHTML = `${currentColor} ${currentType}`;
-
+      description.classList.remove('hidden');
       let newDie = new Die(`${currentDieName}`, `${currentType}`, `${currentColor}`);
+
       activeDice.push(newDie);
     };
 }

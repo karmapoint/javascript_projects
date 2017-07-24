@@ -181,8 +181,10 @@ input:checked + .slider:before {
 .label {
   float: left;
   margin-right: 20px;
-  margin-top:8px;
   margin-left: 20px;
+  width:180px;
+  font-size: 2em;
+
 }
 
 
@@ -240,4 +242,5 @@ input:checked + .slider:before {
 
 .description {
   margin-bottom: 10px;
+  width: 160px;
 }
