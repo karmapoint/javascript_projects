@@ -80,7 +80,8 @@ button:focus {
   border: 1px solid black;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.8);
-  width:80%;
+  width: 80%;
+  min-width: 380px;
   padding: 10px;
   padding-bottom:20px;
   margin-top: 30px;
@@ -110,13 +111,17 @@ footer {
 }
 
 .att {
-  font-size: .9em;
+  font-size: 1.8em;
   color: white;
   font-family: sans-serif;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 .att a {
   color: yellow;
+}
+
+.att li {
+  margin-bottom: 30px;
 }
 
 
