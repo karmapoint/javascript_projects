@@ -234,6 +234,7 @@ function checkPlayAudio(){
   const audio = document.querySelector('#rollSound');
   audio.currentTime = 0;
   if (sound) {
+    audioDelay = 2000;
     audio.play();
   } else {
     audioDelay = 500;
