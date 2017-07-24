@@ -1,4 +1,4 @@
-// SOUND CONTROLS
+// Sound settings
 
 let sound = true;
 
@@ -15,31 +15,6 @@ function toggleLabel(e) {
     }
 }
   box.addEventListener("change", toggleLabel, false);
-
-
-// ----------------------------------------------------
-
-// Rolling the dice
-
-function rollDice(e){
-  let results = document.querySelector(".results");
-  results.innerHTML = "";
-  if (activeDice.length === 0) {
-    results.innerHTML = "<h2>No Dice!</h2>";
-  }
-
-
-  const audio = document.querySelector('#rollSound');
-  audio.currentTime = 0;
-  if (sound) {
-    audio.play();
-  }
-  //CHECK FOR OPEN MODALS AND CLOSE THEM?
-}
-
-const rollButton = document.querySelector('#roll');
-rollButton.addEventListener('click', rollDice, false);
-
 
 
 // ----------------------------------------------------
@@ -84,13 +59,17 @@ settingsCloseButton.addEventListener('click', toggleSettings, false);
 
 // ----------------------------------------------------
 
+
+// Setup Dice objects and activeDice array
+
 function Die(name, type, color){
   this.name = name;
   this.type = type;
   this.color = color;
+  this.value = "";
 }
 
-
+const activeDice = [];
 
 
 // Add and remove dice
@@ -121,12 +100,14 @@ function setupSave() {
 }
 
 
-// Initial event listeners for defaul die
-setupDelete();
-setupSave();
-
-
 let diceCode = `
+  <select class="color">
+    <option selected disabled value="">Color of Die</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="yellow">yellow</option>
+  </select>
   <select class="type">
     <option selected disabled value="">Type of Die</option>
     <option value="d4">d4</option>
@@ -136,19 +117,14 @@ let diceCode = `
     <option value="d12">d12</option>
     <option value="d20">d20</option>
   </select>
-  <select class="color">
-    <option selected disabled value="">Color of Die</option>
-    <option value="white">white</option>
-    <option value="blue">blue</option>
-    <option value="red">red</option>
-    <option value="yellow">yellow</option>
-  </select>
+
   <button class="save">SAVE</button>
   <div class="description hidden"></div>
   <i class="fa fa-times delete" aria-hidden="true"></i><br>
   <div class="error"></div>`;
 
 let addDie = document.querySelector(".add");
+
 function addDieToSettings(e){
   let newDie = document.createElement("div");
   newDie.className = "dieSelects";
@@ -161,7 +137,7 @@ function addDieToSettings(e){
 
 addDie.addEventListener('click', addDieToSettings, false);
 
-const activeDice = [];
+
 
 
 function saveDie(e){
@@ -169,13 +145,9 @@ function saveDie(e){
   let currentDieName = e.target.parentNode.id;
 
   let currentDieType = document.querySelector(`#${currentDieName} .type`);
-
-  currentDieType.classList.add('hidden');
-
   let currentType = currentDieType.options[currentDieType.selectedIndex].value;
 
   let currentDieColor = document.querySelector(`#${currentDieName} .color`);
-
   let currentColor = currentDieColor.options[currentDieColor.selectedIndex].value;
 
   if (currentType === "" || currentColor === "") {
@@ -183,17 +155,22 @@ function saveDie(e){
   } else {
       clearError(e);
       let saveButton = document.querySelector(`#${currentDieName} .save`);
+
+      // Hide save buttton and select fields
       saveButton.classList.add("hidden");
       currentDieType.classList.add('hidden');
       currentDieColor.classList.add('hidden');
+
+      // Show saved die attributes and close button
       let description = document.querySelector(`#${currentDieName} .description`);
 
       description.innerHTML = `${currentColor} ${currentType}`;
       description.classList.remove('hidden');
       let newDie = new Die(`${currentDieName}`, `${currentType}`, `${currentColor}`);
 
+      // add saved die into the activeDice array
       activeDice.push(newDie);
-    };
+    }
 }
 
 function saveError(e){
@@ -206,3 +183,51 @@ function clearError(e){
   let container = document.querySelector(`#${e.target.parentNode.id} .error`);
   container.innerHTML = "";
 }
+
+
+// ----------------------------------------------------
+
+// Rendering dice
+
+function render(){
+  let results = document.querySelector(".results");
+  results.innerHTML = "";
+
+  // hide modals
+  const credits = document.querySelector('.credits');
+  credits.classList.add('hidden');
+  const settings = document.querySelector('.settings');
+  settings.classList.add('hidden');
+
+  // check for dice
+  if (activeDice.length === 0){
+    results.innerHTML = "<h2>No Dice!</h2><p>Add dice in the settings.";
+  } else {
+    results.innerHTML = "";
+    // loop through activeDice and render each
+  }
+}
+
+
+// ----------------------------------------------------
+
+// Rolling the dice
+
+function rollDice(e){
+
+  const audio = document.querySelector('#rollSound');
+  audio.currentTime = 0;
+  if (sound) {
+    audio.play();
+  }
+
+  render();
+  //CHECK FOR OPEN MODALS AND CLOSE THEM?
+}
+
+const rollButton = document.querySelector('#roll');
+rollButton.addEventListener('click', rollDice, false);
+
+
+
+// ----------------------------------------------------
