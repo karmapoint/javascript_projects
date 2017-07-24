@@ -258,7 +258,7 @@ input:checked + .slider:before {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 }
 
 .result {
@@ -276,7 +276,6 @@ input:checked + .slider:before {
   border: 2px solid white;
   width: 100px;
   height: 100px;
-  margin-right: 12px;
   background-position: center;
   background-size: cover;
   color: black;
@@ -285,41 +284,14 @@ input:checked + .slider:before {
   justify-content: center;
 }
 
-.d4 {
-  background-image: url(four.png);
-}
+.d4 {  background-image: url(four.png); }
+.d6 {  background-image: url(six.png); }
+.d8 {  background-image: url(eight.png); }
+.d10 {  background-image: url(ten.png); }
+.d12 {  background-image: url(twelve.png); }
+.d20 {  background-image: url(twenty.png); }
 
-.d6 {
-  background-image: url(six.png);
-}
-
-.d8 {
-  background-image: url(eight.png);
-}
-
-.d10 {
-  background-image: url(ten.png);
-}
-
-.d12 {
-  background-image: url(twelve.png);
-}
-
-.d20 {
-  background-image: url(twenty.png);
-}
-
-.white {
-  background-color: white;
-}
-
-.blue {
-  background-color: lightblue;
-}
-
-.red {
-  background-color: darkred;
-}
-.yellow {
-  background-color: gold;
-}
+.white {  background-color: white; }
+.blue {  background-color: lightblue; }
+.red {  background-color: red; }
+.yellow {  background-color: gold; }

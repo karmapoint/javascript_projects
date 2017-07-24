@@ -202,41 +202,47 @@ function render(){
     for (var i = 0; i < activeDice.length; i++) {
       results.innerHTML += `<div class='result'><div class='iconHolder ${activeDice[i].color} ${activeDice[i].type}'> ${activeDice[i].value} </div></div>`;
     }
-
   }
 }
 
-
-//  Example Die display code
-// <div class="result">
-//   <div class="iconHolder d4 white">3</div>
-// </div>
 
 // ----------------------------------------------------
 
 // Rolling the dice
 
-function rollDice(e){
+function updateValues(){
+  for (var i = 0; i < activeDice.length; i++) {
+    let type = activeDice[i].type;
+    let max = parseInt(type.substr(1));
+    let val = Math.floor(Math.random() * max ) + 1;
+    activeDice[i].value = val;
+  }
+}
 
+function checkPlayAudio(){
   const audio = document.querySelector('#rollSound');
   audio.currentTime = 0;
   if (sound) {
     audio.play();
   }
+}
 
-  // hide modals
+function hideModals() {
   const credits = document.querySelector('.credits');
   credits.classList.add('hidden');
   const settings = document.querySelector('.settings');
   settings.classList.add('hidden');
+}
 
-  render();
+function rollDice(e){
+  checkPlayAudio();
+  setTimeout(function() {
+    updateValues();
+    hideModals();
+    render();
+  }, 2000);
 
 }
 
 const rollButton = document.querySelector('#roll');
 rollButton.addEventListener('click', rollDice, false);
-
-
-
-// ----------------------------------------------------
