@@ -199,10 +199,18 @@ function render(){
   } else {
     results.innerHTML = "";
     // loop through activeDice and render each
+    for (var i = 0; i < activeDice.length; i++) {
+      results.innerHTML += `<div class='result'><div class='iconHolder ${activeDice[i].color} ${activeDice[i].type}'> ${activeDice[i].value} </div></div>`;
+    }
 
   }
 }
 
+
+//  Example Die display code
+// <div class="result">
+//   <div class="iconHolder d4 white">3</div>
+// </div>
 
 // ----------------------------------------------------
 

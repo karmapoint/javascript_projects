@@ -85,7 +85,7 @@ button:focus {
   padding: 10px;
   padding-bottom:20px;
   margin-top: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 200px;
 }
 
 .modal p {
@@ -252,8 +252,7 @@ input:checked + .slider:before {
 
 
 .results {
-  margin-top: 20px;
-  border: 1px solid yellow;
+  margin-top: 40px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -263,19 +262,64 @@ input:checked + .slider:before {
 }
 
 .result {
-  border: 1px solid white;
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 4em;
+  font-size: 3.2em;
+  padding: 8px;
 }
 
 .iconHolder {
   border-radius: 50%;
   border: 2px solid white;
-  width: 120px;
-  height: 120px;
-  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+  margin-right: 12px;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d4 {
+  background-image: url(four.png);
+}
+
+.d6 {
+  background-image: url(six.png);
+}
+
+.d8 {
+  background-image: url(eight.png);
+}
+
+.d10 {
+  background-image: url(ten.png);
+}
+
+.d12 {
+  background-image: url(twelve.png);
+}
+
+.d20 {
+  background-image: url(twenty.png);
+}
+
+.white {
+  background-color: white;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.red {
+  background-color: darkred;
+}
+.yellow {
+  background-color: gold;
 }
