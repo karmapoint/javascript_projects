@@ -69,6 +69,8 @@ function Die(name, type, color){
   this.value = "";
 }
 
+let counter = 0;
+
 const activeDice = [];
 
 
@@ -85,11 +87,11 @@ function setupDelete() {
       for (let j = 0; j < activeDice.length; j++) {
         if (activeDice[j].name === child.id) {
           activeDice.splice(j, 1);
+          render();
         }
       }
     };
   }
-  render();
 }
 
 function setupSave() {
@@ -127,7 +129,8 @@ let addDie = document.querySelector(".add");
 function addDieToSettings(e){
   let newDie = document.createElement("div");
   newDie.className = "dieSelects";
-  newDie.id = `die${diceSettings.length}`;
+  newDie.id = `die${counter}`;
+  counter ++;
   newDie.innerHTML = diceCode;
   diceContainer.appendChild(newDie);
   setupDelete();
@@ -195,7 +198,7 @@ function render(){
 
   // check for dice
   if (activeDice.length === 0){
-    results.innerHTML = "<h2>No Dice!</h2><p>Add dice in the settings.";
+    results.innerHTML = "<h3>No Dice!</h3><p>Add dice in the settings.";
   } else {
     results.innerHTML = "";
     // loop through activeDice and render each
@@ -219,6 +222,12 @@ function updateValues(){
   }
 }
 
+function clearValues(){
+  for (var i = 0; i < activeDice.length; i++) {
+        activeDice[i].value = "";
+  }
+}
+
 function checkPlayAudio(){
   const audio = document.querySelector('#rollSound');
   audio.currentTime = 0;
@@ -235,6 +244,8 @@ function hideModals() {
 }
 
 function rollDice(e){
+  clearValues();
+  render();
   checkPlayAudio();
   setTimeout(function() {
     updateValues();
