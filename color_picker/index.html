@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Color Picker</title>
+    <style media="screen">
+      html {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <button type="button" id="button">CLICK ME</button>
+
+
+
+    <script type="text/javascript">
+      let but = document.querySelector("#button");
+      but.addEventListener("click", function() {
+        document.querySelector("body").style.background = "black";
+      })
+    </script>
+
+  </body>
+</html>
