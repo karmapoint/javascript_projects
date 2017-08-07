@@ -9,20 +9,67 @@ body {
   align-items: center;
   height:100%;
   background: #333333;
+  margin:0;
+  padding:0;
 }
 
 header {
   text-align: center;
   display: block;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #bar {
   width: 100%;
-  height: 20px;
-  padding: 10px;
-  font-size: 2em;
+  background-color: #cccccc;
+  color: black;
+  margin-bottom: 20px;
+  height: 40px;
   text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.barContainer {
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 800px;
+  width: 100%;
+}
+
+.right-container {
+
+}
+
+button {
+  height:40px;
+  text-transform: uppercase;
+  color: black;
+  background-color: #cccccc;
+  border: 0 solid #cccccc;
+}
+
+#reset:hover {
+  background-color: black;
+  color:white;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+.middle {
+  margin-top:12px;
 }
 
 .container {
