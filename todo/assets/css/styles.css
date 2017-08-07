@@ -1,18 +1,84 @@
-html, body {
+html, body, ul, li, h1, input {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
+body {
+  background:url("../images/background_blur.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1 {
+  background-color: steelblue;
+  color: white;
+  text-transform: uppercase;
+  font-weight: lighter;
+  padding: 8px;
+  padding-left: 20px;
+  font-size: 1.4em;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+li:nth-child(2n){
+  background-color: #eeeeee;
+}
+
+input {
+  font-size: 1.4em;
+  background-color: #eeeeee;
+  width: 100%;
+  padding: 12px 12px 12px 20px;
+}
+
+input:focus {
+  background-color: white;
+  outline: none;
+  border: 1px solid steelblue;
+}
+span {
+  background-color: darkred;
+  height: 40px;
+  width: 0;
+  margin-right: 20px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  transition: all 0.4s;
+  opacity: 0;
+  cursor: pointer;
+}
+
+li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
 #container {
   width: 360px;
   margin: 10% auto;
-  background-color: #dddddd;
-  border-radius: 20px;
-  border: 1px solid darkgray;
+  background-color: #eeeeee;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
 
+.fa-plus , .fa-minus{
+  margin-left:180px;
+  cursor: pointer;
+}
+
+.fa-minus {
+  margin-left: 180px;
+}
 .done {
   color: gray;
   text-decoration: line-through;
