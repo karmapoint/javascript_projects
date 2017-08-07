@@ -4,3 +4,11 @@ html, body {
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+#container {
+  width: 360px;
+  margin: 10% auto;
+  background-color: #dddddd;
+  border-radius: 20px;
+  border: 1px solid darkgray;
+}
