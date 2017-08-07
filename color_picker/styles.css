@@ -41,6 +41,7 @@ h1 {
 }
 
 .barContainer {
+  box-sizing: border-box;
   height: 40px;
   margin: 0 auto;
   text-align: center;
@@ -62,6 +63,8 @@ button {
   color: black;
   background-color: #cccccc;
   border: none;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 button:hover {
@@ -87,11 +90,13 @@ button:hover {
 
 .square {
   width: 30%;
-  height: 40px;
+
   padding-bottom: 30%;
   margin: 1.66%;
   border-radius: 20px;
   transition: all .4s;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
 }
 
 .hidden {
