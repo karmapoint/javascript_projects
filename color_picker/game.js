@@ -17,7 +17,7 @@ function setupBoard(){
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   let top = document.querySelector("header");
-  top.style.backgroundColor = "#333333";
+  top.style.backgroundColor = "steelblue";
   messageBar.textContent = "";
 
   for (var i = 0; i < squares.length; i++) {

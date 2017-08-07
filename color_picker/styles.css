@@ -18,7 +18,13 @@ header {
   display: block;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  background-color: steelblue;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: lighter;
 }
 
 #bar {
@@ -55,16 +61,16 @@ button {
   text-transform: uppercase;
   color: black;
   background-color: #cccccc;
-  border: 0 solid #cccccc;
+  border: none;
 }
 
-#reset:hover {
-  background-color: black;
+button:hover {
+  background-color: steelblue;
   color:white;
 }
 
 .active {
-  background-color: black;
+  background-color: steelblue;
   color: white;
 }
 
@@ -85,6 +91,7 @@ button {
   padding-bottom: 30%;
   margin: 1.66%;
   border-radius: 20px;
+  transition: all .4s;
 }
 
 .hidden {
