@@ -12,3 +12,8 @@ html, body {
   border-radius: 20px;
   border: 1px solid darkgray;
 }
+
+.done {
+  color: gray;
+  text-decoration: line-through;
+}
