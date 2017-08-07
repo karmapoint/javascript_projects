@@ -1,21 +1,25 @@
-let colors = generateRandomColors(6);
-
+let number = 6;
+let colors = generateRandomColors(number);
 let squares = document.getElementsByClassName('square');
 let pickedColor = pickColor();
 let colorDisplay = document.querySelector("#targetColor");
 let messageBar = document.querySelector(".middle");
-
 let resetButton = document.querySelector("#reset");
+let easyBtn = document.querySelector("#easy");
+let hardBtn = document.querySelector("#hard");
 
 
 /*  SETUP BOARD */
 colorDisplay.textContent = pickedColor;
 
 function setupBoard(){
+  colors = generateRandomColors(number);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
   let top = document.querySelector("header");
   top.style.backgroundColor = "#333333";
   messageBar.textContent = "";
-  
+
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
 
@@ -37,12 +41,21 @@ function setupBoard(){
 setupBoard();
 
 resetButton.addEventListener("click", function(){
-  colors = generateRandomColors(6);
-  pickedColor = pickColor();
-  colorDisplay.textContent = pickedColor;
   setupBoard();
+});
 
+easyBtn.addEventListener("click", function(){
+  number = 3;
+  setupBoard();
+  toggleEasy();
+  toggleSquares();
+});
 
+hardBtn.addEventListener("click", function(){
+  number = 6;
+  setupBoard();
+  toggleHard();
+  toggleSquares();
 });
 
 
@@ -70,4 +83,24 @@ function randomColor(){
   let green = Math.floor(Math.random() * 255);
   let blue = Math.floor(Math.random() * 255);
   return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function toggleEasy(){
+  hardBtn.classList.remove("active");
+  easyBtn.classList.add("active");
+}
+function toggleHard(){
+  hardBtn.classList.add("active");
+  easyBtn.classList.remove("active");
+}
+
+function toggleSquares(){
+  let extras = document.querySelectorAll(".extra");
+  for (var i = 0; i < extras.length; i++) {
+    if (number === 3) {
+      extras[i].classList.add("hidden");
+    } else {
+      extras[i].classList.remove("hidden");
+    }
+  }
 }
