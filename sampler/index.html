@@ -6,26 +6,29 @@
     <title>Sampler</title>
 
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/lib/paper-full.min.js"></script>
-    <script type="text/javascript" src="js/paper.js"></script>
+    <script type="text/javascript" src="js/lib/paper-full.js"></script>
+
 
     <script type="text/paperscript" canvas="myCanvas">
-    	// Create a Paper.js Path to draw a line into it:
-    	var path = new Path();
-    	// Give the stroke a color
-    	path.strokeColor = 'white';
-    	var start = new Point(100, 100);
-    	// Move to start and draw a line from there
-    	path.moveTo(start);
-    	// Note the plus operator on Point objects.
-    	// PaperScript does that for us, and much more!
-    	path.lineTo(start + [ 100, -50 ]);
-      var decagon = new Path.RegularPolygon(new Point(200, 70), 10, 50);
-      decagon.fillColor = '#e9e9ff';
-      decagon.selected = true;
 
-      var myCircle = new Path.Circle(new Point(300, 400), 500);
-      myCircle.fillColor = 'yellow';
+      var colors = ["darkred", "darkgreen", "gold", "lightblue"]
+      var left, right, radius, color, myCircle;
+      var circles =[];
+
+      function onKeyDown(event) {
+        myCircle = new Path.Circle(new Point(Math.floor(Math.random() * view.size.width), Math.floor(Math.random() * view.size.height)), 400);
+        myCircle.fillColor = colors[Math.floor(Math.random() * 4)];
+        circles.push(myCircle);
+      }
+
+      function onFrame(event){
+        for (var i = 0; i < circles.length; i++) {
+          circles[i].fillColor.hue += 1;
+          circles[i].scale(.9);
+        }
+      }
+
+
     </script>
   </head>
   <body>
