@@ -7,17 +7,157 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript" src="js/lib/paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js">
 
+    </script>
 
     <script type="text/paperscript" canvas="myCanvas">
+
+      var soundA = new Howl({ src: ['sounds/a.mp3']});
+      var soundB = new Howl({ src: ['sounds/b.mp3']});
+      var soundC = new Howl({ src: ['sounds/c.mp3']});
+      var soundD = new Howl({ src: ['sounds/d.mp3']});
+      var soundE = new Howl({ src: ['sounds/e.mp3']});
+      var soundF = new Howl({ src: ['sounds/f.mp3']});
+      var soundG = new Howl({ src: ['sounds/g.mp3']});
+      var soundH = new Howl({ src: ['sounds/h.mp3']});
+      var soundI = new Howl({ src: ['sounds/i.mp3']});
+      var soundJ = new Howl({ src: ['sounds/j.mp3']});
+      var soundK = new Howl({ src: ['sounds/k.mp3']});
+      var soundL = new Howl({ src: ['sounds/l.mp3']});
+      var soundM = new Howl({ src: ['sounds/m.mp3']});
+      var soundN = new Howl({ src: ['sounds/n.mp3']});
+      var soundO = new Howl({ src: ['sounds/o.mp3']});
+      var soundP = new Howl({ src: ['sounds/p.mp3']});
+      var soundQ = new Howl({ src: ['sounds/q.mp3']});
+      var soundR = new Howl({ src: ['sounds/r.mp3']});
+      var soundS = new Howl({ src: ['sounds/s.mp3']});
+      var soundT = new Howl({ src: ['sounds/t.mp3']});
+      var soundU = new Howl({ src: ['sounds/u.mp3']});
+      var soundV = new Howl({ src: ['sounds/v.mp3']});
+      var soundW = new Howl({ src: ['sounds/w.mp3']});
+      var soundX = new Howl({ src: ['sounds/x.mp3']});
+      var soundY = new Howl({ src: ['sounds/y.mp3']});
+      var soundZ = new Howl({ src: ['sounds/z.mp3']});
+
+
+
 
       var colors = ["darkred", "darkgreen", "gold", "lightblue"]
       var left, right, radius, color, myCircle;
       var circles =[];
 
       function onKeyDown(event) {
+
+
         myCircle = new Path.Circle(new Point(Math.floor(Math.random() * view.size.width), Math.floor(Math.random() * view.size.height)), 400);
-        myCircle.fillColor = colors[Math.floor(Math.random() * 4)];
+
+        if (event.key === "a"){
+            soundA.play();
+            myCircle.fillColor = "aliceblue"
+        }
+        if (event.key === "b"){
+            soundB.play();
+            myCircle.fillColor = "beige"
+        }
+        if (event.key === "c"){
+            soundC.play();
+            myCircle.fillColor = "chartreuse"
+        }
+        if (event.key === "d"){
+            soundD.play();
+            myCircle.fillColor = "darkturquoise"
+        }
+        if (event.key === "e"){
+            soundE.play();
+            myCircle.fillColor = "dodgerblue"
+        }
+        if (event.key === "f"){
+            soundF.play();
+            myCircle.fillColor = "firebrick"
+        }
+        if (event.key === "g"){
+            soundG.play();
+            myCircle.fillColor = "green"
+        }
+        if (event.key === "h"){
+            soundH.play();
+            myCircle.fillColor = "hotpink"
+        }
+        if (event.key === "i"){
+            soundI.play();
+            myCircle.fillColor = "indianred"
+        }
+        if (event.key === "j"){
+            soundJ.play();
+            myCircle.fillColor = "lavender"
+        }
+        if (event.key === "k"){
+            soundK.play();
+            myCircle.fillColor = "khaki"
+        }
+        if (event.key === "l"){
+            soundL.play();
+            myCircle.fillColor = "lawngreen"
+        }
+        if (event.key === "m"){
+            soundM.play();
+            myCircle.fillColor = "magenta"
+        }
+        if (event.key === "n"){
+            soundN.play();
+            myCircle.fillColor = "navajowhite"
+        }
+        if (event.key === "o"){
+            soundO.play();
+            myCircle.fillColor = "olivedrab"
+        }
+        if (event.key === "p"){
+            soundP.play();
+            myCircle.fillColor = "palegoldenrod"
+        }
+        if (event.key === "q"){
+            soundQ.play();
+            myCircle.fillColor = "rebeccapurple"
+        }
+        if (event.key === "r"){
+            soundR.play();
+            myCircle.fillColor = "red"
+        }
+        if (event.key === "s"){
+            soundS.play();
+            myCircle.fillColor = "slategray"
+        }
+        if (event.key === "t"){
+            soundT.play();
+            myCircle.fillColor = "thistle"
+        }
+        if (event.key === "u"){
+            soundU.play();
+            myCircle.fillColor = "turquoise"
+        }
+        if (event.key === "v"){
+            soundV.play();
+            myCircle.fillColor = "violet"
+        }
+        if (event.key === "w"){
+            soundW.play();
+            myCircle.fillColor = "white"
+        }
+        if (event.key === "x"){
+            soundX.play();
+            myCircle.fillColor = "yellowgreen"
+        }
+        if (event.key === "y"){
+            soundY.play();
+            myCircle.fillColor = "yellow"
+        }
+        if (event.key === "z"){
+            soundZ.play();
+            myCircle.fillColor = "tomato"
+        }
+
+
         circles.push(myCircle);
       }
 
@@ -32,6 +172,7 @@
     </script>
   </head>
   <body>
+    <!-- http://www.noisecrux.com/2013/09/13/multisampled-electric-guitar/ -->
 	   <canvas id="myCanvas" resize></canvas>
   </body>
 </html>
