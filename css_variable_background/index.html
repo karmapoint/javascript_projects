@@ -7,7 +7,7 @@
     <style>
       /* CSS VARIABLES */
       :root {
-        --color: #000000;
+        --color: #258a34;
         --blur: 0px;
         --opacity: 0;
       }
@@ -68,6 +68,10 @@
         margin-right: 0;
       }
 
+      a {
+        color:white;
+      }
+
       .overlay {
         position: absolute;
         top:0;
@@ -95,7 +99,7 @@
       .controls {
         width: 90%;
         max-width: 800px;
-          margin: 0 auto;
+        margin: 0 auto;
       }
 
       .control_block {
@@ -107,27 +111,19 @@
       }
 
     </style>
-
-
-
   </head>
   <body>
     <main>
       <h1>Adjustable Background with CSS/JS</h1>
 
-      <p>Export probant hic dolore aliqua sed fore a si anim appellat, fore exercitation
-      quibusdam tamen expetendis ab culpa singulis laborum. Quamquam qui mentitum.
-      Possumus ex summis, est fore imitarentur o voluptate et cernantur, summis
-      mentitum vidisse, nam dolor exercitation ut incurreret culpa te officia
-      eruditionem de labore singulis admodum si singulis id nisi.O eiusmod ex
-      proident.
+      <p>Use the contols at the top of the page to manipulate the background for
+        this website. You can blur the photo and add a color overlay. Play around
+        and see what you can do.
       </p>
 
-      <p>Ne an anim aliquip, cillum e occaecat in pariatur concursionibus et
-      officia eu nisi arbitrantur excepteur irure iudicem, ut laboris e doctrina non
-      fore exercitation quamquam quorum excepteur et illum mentitum qui sempiternum se
-      non summis noster te consequat. Deserunt fore commodo, mentitum velit dolore
-      mentitum tempor.</p>
+      <p><a href="https://github.com/karmapoint/javascript_projects/tree/master/css_variable_background" targe="_blank">Designed and coded by Brent Gummow.</a></p>
+      <p><a href="https://javascript30.com/" target="_blank">Inspired by original idea from Wes Bos.</a></p>
+
     </main>
     <aside>
       <div class="controls">
@@ -139,7 +135,7 @@
         <div class="control_block">
           <h3>Color overlay:</h3>
           <label for="color">Color</label>
-          <input type="color" name="color" value="#000000">
+          <input type="color" name="color" value="#258a34">
 
           <label for="opacity">Opacity</label>
           <input type="range" name="opacity" min="0" max="1" step=".05" value="0">
@@ -147,5 +143,24 @@
     </aside>
     <div class="overlay"></div>
     <div class="background_image"></div>
+
+    <script>
+      // select all the inputs
+      const inputs = document.querySelectorAll('input');
+
+      //Apply the changs to the CSS variables
+      function updateValues() {
+        // this allows us to concat the proper suffix - getting sizing from
+        // data-sizing on input element
+        const suffix = this.dataset.sizing || "";
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      }
+
+      // add event listener to check for changes in values
+      inputs.forEach(input => input.addEventListener('change', updateValues));
+
+      // add second event listener to see changes as you move the sliders
+      inputs.forEach(input => input.addEventListener('mousemove', updateValues));
+    </script>
   </body>
 </html>
