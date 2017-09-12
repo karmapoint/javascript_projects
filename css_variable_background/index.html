@@ -5,24 +5,27 @@
     <title>Adjustable Background with CSS/JS</title>
 
     <style>
+      /* CSS VARIABLES */
+      :root {
+        --color: #000000;
+        --blur: 0px;
+        --opacity: 0;
+      }
+
       body {
-        background-image: url("https://unsplash.it/1440/900?image=599");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
         font-family: sans-serif;
         margin:0;
-      }
+        }
       main {
         width: 80%;
         max-width: 800px;
         border-radius: 10px;
-        margin: 50px auto 0;
+        margin: 90px auto 0;
         background-color: rgba(0, 0, 0, 0.3);
         padding: 20px;
         color: white;
         line-height: 1.4;
+        z-index: 1;
       }
       h1 {
         font-weight: lighter;
@@ -31,19 +34,58 @@
       h3 {
         display:inline;
         font-weight: lighter;
+        text-transform: uppercase;
+        margin-right: 10px;
+        font-size:12px;
       }
 
       aside {
         height: 30px;
         position:fixed;
-        bottom: 0;
+        top: 0;
         width: 100%;
-        height: 30px;
-        padding: 20px;
+        height: 20px;
+        padding: 12px;
         background-color: rgba(0, 0, 0, 0.3);
         color: white;
+        z-index: 2;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
       }
 
+      input {
+        margin-right: 20px;
+        margin-top: 20px;
+      }
+
+      label {
+      }
+
+      .overlay {
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index: -1;
+        background-color: var(--color);
+        opacity: var(--opacity);
+      }
+      .background_image {
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index: -2;
+        background-image: url("https://unsplash.it/1440/900?image=599");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        filter: blur(var(--blur));
+      }
       .controls {
         width: 80%;
         max-width: 800px;
@@ -52,7 +94,6 @@
 
       .control_block {
         display: inline-block;
-        margin-right: 30px;
       }
 
     </style>
@@ -62,9 +103,8 @@
   </head>
   <body>
     <main>
-    <h1>Adjustable Background with CSS/JS</h1>
+      <h1>Adjustable Background with CSS/JS</h1>
 
-    <div class="body">
       <p>Export probant hic dolore aliqua sed fore a si anim appellat, fore exercitation
       quibusdam tamen expetendis ab culpa singulis laborum. Quamquam qui mentitum.
       Possumus ex summis, est fore imitarentur o voluptate et cernantur, summis
@@ -78,24 +118,24 @@
       fore exercitation quamquam quorum excepteur et illum mentitum qui sempiternum se
       non summis noster te consequat. Deserunt fore commodo, mentitum velit dolore
       mentitum tempor.</p>
-    </div>
     </main>
     <aside>
       <div class="controls">
         <div class="control_block">
           <h3>Photo:</h3>
-          <label for="blur">Blur:</label>
+          <label for="blur">Blur</label>
           <input type="range" name="blur" min="0" max="10" value="0" data-sizing="px">
         </div>
         <div class="control_block">
           <h3>Color overlay:</h3>
-          <label for="color">Color:</label>
+          <label for="color">Color</label>
           <input type="color" name="color" value="#000000">
 
-          <label for="opacity">Opacity:</label>
-          <input type="range" name="opacity" min="0" max="100" value="0">
+          <label for="opacity">Opacity</label>
+          <input type="range" name="opacity" min="0" max="1" step=".05" value="0">
         </div>
-      </div>
     </aside>
+    <div class="overlay"></div>
+    <div class="background_image"></div>
   </body>
 </html>
