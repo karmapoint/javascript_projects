@@ -3,35 +3,99 @@
   <head>
     <meta charset="utf-8">
     <title>Adjustable Background with CSS/JS</title>
+
+    <style>
+      body {
+        background-image: url("https://unsplash.it/1440/900?image=599");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: sans-serif;
+        margin:0;
+      }
+      main {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 10px;
+        margin: 50px auto 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        color: white;
+        line-height: 1.4;
+      }
+      h1 {
+        font-weight: lighter;
+      }
+
+      h3 {
+        display:inline;
+        font-weight: lighter;
+      }
+
+      aside {
+        height: 30px;
+        position:fixed;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+      }
+
+      .controls {
+        width: 80%;
+        max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .control_block {
+        display: inline-block;
+        margin-right: 30px;
+      }
+
+    </style>
+
+
+
   </head>
   <body>
-
+    <main>
     <h1>Adjustable Background with CSS/JS</h1>
 
-    <aside class="controls">
-      <label for="blur">Blur:</label>
-      <input type="range" name="blur" min="0" max="10" value="0" data-sizing="px">
+    <div class="body">
+      <p>Export probant hic dolore aliqua sed fore a si anim appellat, fore exercitation
+      quibusdam tamen expetendis ab culpa singulis laborum. Quamquam qui mentitum.
+      Possumus ex summis, est fore imitarentur o voluptate et cernantur, summis
+      mentitum vidisse, nam dolor exercitation ut incurreret culpa te officia
+      eruditionem de labore singulis admodum si singulis id nisi.O eiusmod ex
+      proident.
+      </p>
 
-      <label for="color">Color:</label>
-      <input type="color" name="color" value="#000000">
+      <p>Ne an anim aliquip, cillum e occaecat in pariatur concursionibus et
+      officia eu nisi arbitrantur excepteur irure iudicem, ut laboris e doctrina non
+      fore exercitation quamquam quorum excepteur et illum mentitum qui sempiternum se
+      non summis noster te consequat. Deserunt fore commodo, mentitum velit dolore
+      mentitum tempor.</p>
+    </div>
+    </main>
+    <aside>
+      <div class="controls">
+        <div class="control_block">
+          <h3>Photo:</h3>
+          <label for="blur">Blur:</label>
+          <input type="range" name="blur" min="0" max="10" value="0" data-sizing="px">
+        </div>
+        <div class="control_block">
+          <h3>Color overlay:</h3>
+          <label for="color">Color:</label>
+          <input type="color" name="color" value="#000000">
 
-      <label for="opacity">Opacity:</label>
-      <input type="range" name="opacity" min="0" max="100">
-
+          <label for="opacity">Opacity:</label>
+          <input type="range" name="opacity" min="0" max="100" value="0">
+        </div>
+      </div>
     </aside>
-
-    Export probant hic dolore aliqua sed fore a si anim appellat, fore exercitation
-    quibusdam tamen expetendis ab culpa singulis laborum. Quamquam qui mentitum.
-    Possumus ex summis, est fore imitarentur o voluptate et cernantur, summis
-    mentitum vidisse, nam dolor exercitation ut incurreret culpa te officia
-    eruditionem de labore singulis admodum si singulis id nisi.O eiusmod ex
-    proident. Ne an anim aliquip, cillum e occaecat in pariatur concursionibus et
-    officia eu nisi arbitrantur excepteur irure iudicem, ut laboris e doctrina non
-    fore exercitation quamquam quorum excepteur et illum mentitum qui sempiternum se
-    non summis noster te consequat. Deserunt fore commodo, mentitum velit dolore
-    mentitum tempor.
-
-
-
   </body>
 </html>
