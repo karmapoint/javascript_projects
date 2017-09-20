@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Secret Code!</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel='icon' href='favicon.ico' type='image/x-icon'/ > -->
+    <meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Enter the Konomi Code!</h1>
+    <p>(up, up, down, down. left, right, left, right, b, a, enter)</p>
+
+    <script type="text/javascript">
+      const keys = [];
+      const code = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter";
+
+      window.addEventListener('keyup', (e) => {
+        console.log(e.key);
+        keys.push(e.key);
+
+        if (keys.length === 12) {
+          keys.splice(0, 1);
+        }
+
+
+        if(keys.join('').includes(code)){
+          alert("yay!");
+        }
+
+        console.log(keys);
+      });
+
+
+    </script>
+  </body>
+</html>
