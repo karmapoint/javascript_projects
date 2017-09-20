@@ -6,25 +6,41 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel='icon' href='favicon.ico' type='image/x-icon'/ > -->
     <meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1">
+    <style media="screen">
+      body { font-family: sans-serif;}
+      main { width: 500px; margin: 100px auto;}
+    </style>
   </head>
   <body>
-    <h1>Enter the Konomi Code!</h1>
-    <p>(up, up, down, down. left, right, left, right, b, a, enter)</p>
-
+    <main>
+      <h1>Enter the Konomi Code!</h1>
+      <p>(up, up, down, down. left, right, left, right, b, a, enter)</p>
+    </main>
     <script type="text/javascript">
+
+    // create an array to hold keystrokes
       const keys = [];
+
+    // set the code to look for
       const code = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter";
 
+    // add event listener to the window for each time a key is pressed
       window.addEventListener('keyup', (e) => {
         console.log(e.key);
+
+        // push each keystroke into the array
         keys.push(e.key);
 
+        // to keep from tracking ALL keystrokes, splice the array when the length
+        // gets 1 more than the length of the code
         if (keys.length === 12) {
           keys.splice(0, 1);
         }
 
-
+        // check if the joined array matches the code
         if(keys.join('').includes(code)){
+
+          // do something when the match is found
           alert("yay!");
         }
 
